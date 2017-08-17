@@ -41,7 +41,7 @@ The following is a categorized overview of all changes by commit.
 - blockchain: use the time source [decred/dcrd#747](https://github.com/decred/dcrd/pull/747)
 - peer: Strictly enforce bloom filter service bit [decred/dcrd#768](https://github.com/decred/dcrd/pull/768)
 - wire/peer: Implement feefilter p2p message [decred/dcrd#779](https://github.com/decred/dcrd/pull/779)
-- chaincfg: update checkpoints for 1.0.7 release  [](https://github.com/decred/dcrd/pull/816)
+- chaincfg: update checkpoints for 1.0.7 release  [decred/dcrd#816](https://github.com/decred/dcrd/pull/816)
 
 ### Transaction relay (memory pool):
 - mempool: Break dependency on chain instance [decred/dcrd#754](https://github.com/decred/dcrd/pull/754)
