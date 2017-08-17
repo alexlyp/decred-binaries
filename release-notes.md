@@ -21,10 +21,15 @@ See manifest-v1.0.7.txt, and the package specific manifest files for sha256 sums
 See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
 
 ## Release Notes
-[dcrd](https://github.com/alexlyp/decred-binaries/blob/ayp_107/release-notes.md#dcrd-v107-release-notes)
-[dcrwallet](https://github.com/alexlyp/decred-binaries/blob/ayp_107/release-notes.md#dcrwallet-v107-release-notes)
-[Paymetheus](https://github.com/alexlyp/decred-binaries/blob/ayp_107/release-notes.md#Paymetheus-v107-release-notes)
+
+[dcrd](#dcrd-v107-release-notes)
+
+[dcrwallet](#dcrwallet-v107-release-notes)
+
+[Paymetheus](#paymetheus-v107-release-notes)
+
 [decrediton](#decrediton-v107-release-notes)
+
 
 ## dcrwallet v1.0.7 Release Notes
  
