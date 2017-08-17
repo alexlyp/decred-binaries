@@ -27,12 +27,13 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 * [Paymetheus](#paymetheus-v107)
 * [decrediton](#decrediton-v107)
 
-# dcrd v1.0.7
 
-## Changelog
+## dcrd v1.0.7
 
-All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/dcrd/compare/v1.0.5...v1.0.7).
+This release primarily contains improvement to the infrastructure and other 
+quality assurance changes that are bringing us closer to providing full support
+for Lightning Network.  Much of the changes occurred with syncs from upstream 
+btcd.
 
 The following is a categorized overview of all changes by commit.  
 
@@ -140,6 +141,12 @@ The following is a categorized overview of all changes by commit.
 - Josh Rickmar
 - Olaoluwa Osuntokun
 - Marco Peereboom
+
+### Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrd/compare/v1.0.5...v1.0.7).
+
 
 ## dcrwallet v1.0.7
  
@@ -301,9 +308,19 @@ This release of decrediton aims to smooth out various issues that users have
 consistently reported since the release of v1.0.6.  Extra care has been taken
 to ensure that users get as much information as possible to understand some
 of the innerworks of Decred.  But at the same time, ticket purchasing and other
-features are actively being simplified and refined.  In the coming releases,
-we are expecting the following: Windows releases, staking overview page and
-a completely revamped onboarding procedure.
+features are actively being simplified and refined.  We have also added
+some basic animations instead of the default loading screens.  We hope to
+integrate several pieces of art and animations from our amazing community of 
+artists.
+
+In the coming releases we are expecting the following: Windows releases and
+a completely revamped onboarding procedure.  This release is a step toward
+realizng those goals.
+
+We have also begun a complete refactor and reorganization of the React 
+components.  This [issue](https://github.com/decred/decrediton/issues/528) describes the end goal of this project.
+Ideally, we will be able to make the UX/UI development open to all designers,
+which will allow for a true collborative effort.
 
 ### Database upgrade notice
  
