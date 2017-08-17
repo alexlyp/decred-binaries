@@ -2,6 +2,7 @@
  
 ## 2017-08-17
  
+ 
 ## Install
  
 To install Paymetheus download and run either
@@ -20,6 +21,7 @@ See manifest-v1.0.7.txt, and the package specific manifest files for sha256 sums
  
 See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
 
+
 ## Contents
 
 * [dcrd](#dcrd-v107)
@@ -30,12 +32,45 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 
 ## dcrd v1.0.7
 
-This release primarily contains improvement to the infrastructure and other 
-quality assurance changes that are bringing us closer to providing full support
-for Lightning Network.  Much of the changes occurred with syncs from upstream 
-btcd.
+This release of dcrd primarily contains improvements to the infrastructure and other quality assurance changes
+that are bringing us closer to providing full support for Lightning Network.
 
-The following is a categorized overview of all changes by commit.  
+A lot of work required for Lightning Network support went into getting the required code merged into the upstream
+project, btcd, which now fully supports it.  These changes also must be synced and integrated with dcrd as well and
+therefore many of the changes in this release are related to that process.
+
+
+## Notable Changes
+
+### Dust check removed from stake transactions
+
+The standard policy for regular transactions is to reject any transactions that have outputs so small that
+they cost more to the network than their value.  This behavior is desirable for regular transactions, however
+it was also being applied to vote and revocation transactions which could lead to a situation where stake pools
+with low fees could result in votes and revocations having difficulty being mined.
+
+This check has been changed to only apply to regular transactions now in order to prevent any issues.  Stake
+transactions have several other checks that make this one unnecessary for them.
+
+### New `feefilter` peer-to-peer message
+
+A new optional peer-to-peer message named `feefilter` has been added that allows peers to inform others about the
+minimum transaction fee rate they are willing to accept.  This will enable peers to avoid notifying others about
+transactions they will not accept anyways and therefore can result in a significant bandwith savings.
+
+### Bloom filter service bit enforcement
+
+Peers that are configured to disable bloom filter support will now disconnect remote peers that send bloom
+filter related commands rather than simply ignoring them.  This allows any light clients that do not observe
+the service bit to potentially find another peer that provides the service.  Additionally, remote peers that
+have negotiated a high enough protocol version to observe the service bit and still send bloom filter
+related commands anyways will now be banned.
+
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrd/compare/v1.0.5...v1.0.7).
 
 ### Protocol and network:
 - Allow reorg of block one [decred/dcrd#745](https://github.com/decred/dcrd/pull/745)
@@ -141,11 +176,6 @@ The following is a categorized overview of all changes by commit.
 - Josh Rickmar
 - Olaoluwa Osuntokun
 - Marco Peereboom
-
-### Changelog
-
-All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/dcrd/compare/v1.0.5...v1.0.7).
 
 
 ## dcrwallet v1.0.7
