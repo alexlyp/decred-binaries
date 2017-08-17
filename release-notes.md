@@ -20,18 +20,18 @@ See manifest-v1.0.7.txt, and the package specific manifest files for sha256 sums
  
 See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
 
-## Release Notes
+## Contents
 
-[dcrd](#dcrd-v107-release-notes)
+[dcrd](#dcrd-v107)
 
-[dcrwallet](#dcrwallet-v107-release-notes)
+[dcrwallet](#dcrwallet-v107)
 
-[Paymetheus](#paymetheus-v107-release-notes)
+[Paymetheus](#paymetheus-v107)
 
-[decrediton](#decrediton-v107-release-notes)
+[decrediton](#decrediton-v107)
 
 
-## dcrwallet v1.0.7 Release Notes
+## dcrwallet v1.0.7
  
 This release focused on fixing several issues related to corrupted spend
 tracking that would cause double spend errors when sending transactions.  All
@@ -133,7 +133,7 @@ All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
  
  
-## Paymetheus v1.0.7 Release Notes
+## Paymetheus v1.0.7
  
 This release focused on under-the-hood improvements to the backend (dcrwallet)
 instead of new features or UI changes.  Users should no longer encounter double
@@ -185,7 +185,7 @@ all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
  
 
-## decrediton v1.0.7 Release Notes
+## decrediton v1.0.7
  
 This release of decrediton aims to smooth out various issues that users have
 consistently reported since the release of v1.0.6.  Extra care has been taken
