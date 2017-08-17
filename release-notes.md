@@ -19,13 +19,9 @@ To install decrediton download, uncompress, and run
 See manifest-v1.0.7.txt, and the package specific manifest files for sha256 sums and the associated .asc files to confirm those shas.
  
 See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
- 
-## Summary
- 
-### dcrd
- 
- 
-### dcrwallet
+
+
+## dcrwallet v1.0.7 Release Notes
  
 This release focused on fixing several issues related to corrupted spend
 tracking that would cause double spend errors when sending transactions.  All
@@ -36,32 +32,7 @@ implemented in future releases.  The wallet now tracks more details about all
 tickets and the votes or revocations that spend them.  In future releases, this
 can be used to implement highly requested features such as detailed listings of
 all tickets, votes, and revocations and subsidy calculations.
- 
- 
-### Paymetheus
- 
-This release focused on under-the-hood improvements to the backend (dcrwallet)
-instead of new features or UI changes.  Users should no longer encounter double
-spend or orphan transaction errors sending transactions due to fixes for wallet
-spend tracking corruption, but a seed restore is necessary to fix
-already-corrupted wallets.
- 
- 
-### decrediton
- 
-This release of decrediton aims to smooth out various issues that users have
-consistently reported since the release of v1.0.6.  Extra care has been taken
-to ensure that users get as much information as possible to understand some
-of the innerworks of Decred.  But at the same time, ticket purchasing and other
-features are actively being simplified and refined.  In the coming releases,
-we are expecting the following: Windows releases, staking overview page and
-a completely revamped onboarding procedure.
- 
- 
-## Changelog
- 
-## dcrwallet v1.0.7 Release Notes
- 
+
 ### Database upgrade notice
  
 This release contains a wallet database upgrade.  Once upgraded, the database
@@ -146,7 +117,7 @@ wallet seed before upgrading in case a downgrade is necessary.
  
 * Code quality has improved over several areas.
  
-### Commits
+### Changelog
  
 All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
@@ -154,6 +125,12 @@ All commits since the last release may be viewed on GitHub
  
 ## Paymetheus v1.0.7 Release Notes
  
+This release focused on under-the-hood improvements to the backend (dcrwallet)
+instead of new features or UI changes.  Users should no longer encounter double
+spend or orphan transaction errors sending transactions due to fixes for wallet
+spend tracking corruption, but a seed restore is necessary to fix
+already-corrupted wallets.
+
 ### Database upgrade notice
  
 This release contains a wallet database upgrade.  Once upgraded, the database
@@ -190,15 +167,24 @@ wallet seed before upgrading in case a downgrade is necessary.
 * Performance enhancements have been made for querying stake statistics in the
   "Stake mining" view.
  
-### Commits
+### Changelog
  
 All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/Paymetheus/compare/v1.0.5...v1.0.7).  Also see
 all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
  
+ 
 ## decrediton v1.0.7 Release Notes
  
+This release of decrediton aims to smooth out various issues that users have
+consistently reported since the release of v1.0.6.  Extra care has been taken
+to ensure that users get as much information as possible to understand some
+of the innerworks of Decred.  But at the same time, ticket purchasing and other
+features are actively being simplified and refined.  In the coming releases,
+we are expecting the following: Windows releases, staking overview page and
+a completely revamped onboarding procedure.
+
 ### Database upgrade notice
  
 This release contains a wallet database upgrade.  Once upgraded, the database
@@ -326,7 +312,7 @@ wallet seed before upgrading in case a downgrade is necessary.
  
 * Fixes to DockerFile support.
  
-### Commits
+### Changelog
  
 All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/decrediton/compare/v1.0.6...v1.0.7).
