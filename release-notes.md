@@ -22,13 +22,10 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 
 ## Contents
 
-[dcrd](#dcrd-v107)
-
-[dcrwallet](#dcrwallet-v107)
-
-[Paymetheus](#paymetheus-v107)
-
-[decrediton](#decrediton-v107)
+* [dcrd](#dcrd-v107)
+* [dcrwallet](#dcrwallet-v107)
+* [Paymetheus](#paymetheus-v107)
+* [decrediton](#decrediton-v107)
 
 
 ## dcrwallet v1.0.7
