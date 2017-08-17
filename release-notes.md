@@ -1,3 +1,339 @@
+# [v1.0.7](https://github.com/decred/decred-binaries/releases/tag/v1.0.7)
+ 
+## 2017-08-17
+ 
+## Install
+ 
+To install Paymetheus download and run either
+[Paymetheus 64bit](https://github.com/decred/decred-binaries/releases/download/v1.0.7/decred_1.0.7-release_x64.msi) or
+[Paymetheus 32bit](https://github.com/decred/decred-binaries/releases/download/v1.0.7/decred_1.0.7-release_x86.msi)
+depending on your version of Windows.
+ 
+To install the command line tools, please see
+[dcrinstaller](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+ 
+To install decrediton download, uncompress, and run
+[decrediton Linux](https://github.com/decred/decred-binaries/releases/download/v1.0.7/decrediton-1.0.7.tar.gz) or
+[decrediton OSX](https://github.com/decred/decred-binaries/releases/download/v1.0.7/decrediton-1.0.7.dmg).
+ 
+See manifest-v1.0.7.txt, and the package specific manifest files for sha256 sums and the associated .asc files to confirm those shas.
+ 
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+ 
+## Summary
+ 
+### dcrd
+ 
+ 
+### dcrwallet
+ 
+This release focused on fixing several issues related to corrupted spend
+tracking that would cause double spend errors when sending transactions.  All
+users are recommended to upgrade.
+ 
+This release also lays the groundwork for more staking features to be
+implemented in future releases.  The wallet now tracks more details about all
+tickets and the votes or revocations that spend them.  In future releases, this
+can be used to implement highly requested features such as detailed listings of
+all tickets, votes, and revocations and subsidy calculations.
+ 
+ 
+### Paymetheus
+ 
+This release focused on under-the-hood improvements to the backend (dcrwallet)
+instead of new features or UI changes.  Users should no longer encounter double
+spend or orphan transaction errors sending transactions due to fixes for wallet
+spend tracking corruption, but a seed restore is necessary to fix
+already-corrupted wallets.
+ 
+ 
+### decrediton
+ 
+This release of decrediton aims to smooth out various issues that users have
+consistently reported since the release of v1.0.6.  Extra care has been taken
+to ensure that users get as much information as possible to understand some
+of the innerworks of Decred.  But at the same time, ticket purchasing and other
+features are actively being simplified and refined.  In the coming releases,
+we are expecting the following: Windows releases, staking overview page and
+a completely revamped onboarding procedure.
+ 
+ 
+## Changelog
+ 
+## dcrwallet v1.0.7 Release Notes
+ 
+### Database upgrade notice
+ 
+This release contains a wallet database upgrade.  Once upgraded, the database
+can not be used on older releases and downgrading will require restoring from
+seed or backup.  The Decred project recommends ensuring you have access to your
+wallet seed before upgrading in case a downgrade is necessary.
+ 
+### Bug fixes
+ 
+* Gaps are no longer created between watched addresses.  This in turn fixes
+  issues where incoming transactions were not received by the wallet and
+  subsequently fixes various double spending and orphan transaction errors when
+  sending transactions or purchasing tickets.  Users affected by these issues
+  are asked to rescan or restore from seed after upgrading.
+ 
+* Adding multiple double spending unconfirmed transactions to the wallet no
+  longer corrupts spend tracking.
+ 
+* Database usage has been altered to avoid known data corruption issues caused
+  by Bolt cursors.
+ 
+* Wrapped address child indexes now continue to stay wrapped across wallet
+  restarts instead of returning to the highest returned child index.  This may
+  avoid unintended address reuse issues.
+ 
+* The first address of newly-created accounts is no longer skipped over when
+  generating addresses.
+ 
+* Handling of stake transactions has been rewritten to keep data consistent with
+  missed votes and blockchain reorganizations.
+ 
+* Balance reporting has been corrected for the voting authority and locked by
+  tickets balances by taking the ticket purchase's transaction fee into account.
+ 
+* The `sendtoaddress`, `sendfrom`, and `sendmany` JSON-RPC methods now verify
+  that the intended network of addresses in the request match the active
+  network.
+ 
+* Missing an explicitly specified config file now errors instead of only logging
+  a warning.
+ 
+### New features
+ 
+* The `signrawtransaction` JSON-RPC and `WalletService.SignTransaction` gRPC
+  methods are now capable of being used on offline wallets.
+ 
+* The `WalletService.SignMessage` and `MessageVerificationService.VerifyMessage`
+  gRPC methods have been introduced to add message signing and verification
+  features to the gRPC API.  These methods operate similarly to the
+  `signmessage` and `verifymessage` JSON-RPC methods.
+ 
+* The `getbalance` JSON-RPC method now includes fields for unconfirmed balances
+  of each account.  These balances are calculated as the spendable (by
+  consensus) balance which is not already included under the `spendable` field,
+  which is the spendable balance by both consensus rules and the minimum number
+  of required confirmations.  The addition of both fields equals the total
+  spendable-by-consensus balance.
+ 
+* Private passphrases can now be specified on the command line or in a config
+  file with the `--pass` option.  When used, the passphrase prompt at startup is
+  avoided when the auto ticket buyer is enabled.
+ 
+### Other improvements
+ 
+* The auto ticket buyer takes better advantage of the improved ticket price
+  algorithm by reducing the default maximum ticket purchase fee from 0.1/kB to
+  0.01/kB and reducing the maximum number of tickets purchased per block from 5
+  to 1.
+ 
+* Ticket purchases are now removed from the wallet once the ticket price
+  changes. As a result, the `--prunetickets` config option is no longer required
+  or useful and has been deprecated.
+ 
+* Performance enhancements have been made for the `getstakeinfo` JSON-RPC and
+  `WalletService.StakeInfo` gRPC methods.
+ 
+* The logger has been rewritten for improved performance.  Rolled log files are
+  now gzipped.
+ 
+* Error logs for duplicate script imports when the wallet is locked have been
+  removed.
+ 
+* Code quality has improved over several areas.
+ 
+### Commits
+ 
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
+ 
+ 
+## Paymetheus v1.0.7 Release Notes
+ 
+### Database upgrade notice
+ 
+This release contains a wallet database upgrade.  Once upgraded, the database
+can not be used on older releases and downgrading will require restoring from
+seed or backup.  The Decred project recommends ensuring you have access to your
+wallet seed before upgrading in case a downgrade is necessary.
+ 
+### Bug fixes
+ 
+* Gaps are no longer created between watched addresses.  This in turn fixes
+  issues where incoming transactions were not received by the wallet and
+  subsequently fixes various double spending and orphan transaction errors when
+  sending transactions or purchasing tickets.  Users affected by these issues
+  are asked to restore from seed after upgrading.
+ 
+* Adding multiple double spending unconfirmed transactions to the wallet no
+  longer corrupts spend tracking.
+ 
+* Database usage has been altered to avoid known data corruption issues caused
+  by Bolt cursors.
+ 
+* Wrapped address child indexes now continue to stay wrapped across wallet
+  restarts instead of returning to the highest returned child index.  This may
+  avoid unintended address reuse issues.
+ 
+* The first address of newly-created accounts is no longer skipped over when
+  generating addresses.
+ 
+* Handling of stake transactions has been rewritten to keep data consistent with
+  missed votes and blockchain reorganizations.
+ 
+### Other improvements
+ 
+* Performance enhancements have been made for querying stake statistics in the
+  "Stake mining" view.
+ 
+### Commits
+ 
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/Paymetheus/compare/v1.0.5...v1.0.7).  Also see
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
+ 
+## decrediton v1.0.7 Release Notes
+ 
+### Database upgrade notice
+ 
+This release contains a wallet database upgrade.  Once upgraded, the database
+can not be used on older releases and downgrading will require restoring from
+seed or backup.  The Decred project recommends ensuring you have access to your
+wallet seed before upgrading in case a downgrade is necessary.
+ 
+### Bug fixes
+ 
+* Gaps are no longer created between watched addresses.  This in turn fixes
+  issues where incoming transactions were not received by the wallet and
+  subsequently fixes various double spending and orphan transaction errors when
+  sending transactions or purchasing tickets.  Users affected by these issues
+  are asked to restore from seed after upgrading.
+ 
+* Adding multiple double spending unconfirmed transactions to the wallet no
+  longer corrupts spend tracking.
+ 
+* Database usage has been altered to avoid known data corruption issues caused
+  by Bolt cursors.
+ 
+* Wrapped address child indexes now continue to stay wrapped across wallet
+  restarts instead of returning to the highest returned child index.  This may
+  avoid unintended address reuse issues.
+ 
+* The first address of newly-created accounts is no longer skipped over when
+  generating addresses.
+ 
+* Handling of stake transactions has been rewritten to keep data consistent with
+  missed votes and blockchain reorganizations.
+ 
+* Ticket autobuyer was not properly starting and stopping. Now user is
+  properly notified when the ticket buyer has started. In the coming releases,
+  we will be adding even more feedback from ticket buyer so the the user
+  is able to see some of the decision making happening each block.
+ 
+* Autobuyer settings are now properly set on config updates and have confirmed
+  that dcrwallet receives all settings as expected configuration changes.
+ 
+* Under strange circumstances, users with multiple stakepools reported that
+  settings were being overwritten. Now, only the pool fees field is updated if
+  necessary.
+ 
+* Revocations are now shown in the transaction History page.
+ 
+* Small display fixes now allow clear rendering on Windows.  We are in the
+  process of fully releasing on Windows in the next release.  
+ 
+* Font files were previously configured incorrectly due to not have the
+  corresponding font files for request font weight.  It made all fonts look
+  fuzzy and unclear.
+ 
+* Some fields have been fixed to allow expected double-click-to-select
+  functionality. We are auditting and trying to fix all of them soon.
+ 
+* Testnet2 Wallets weren't properly being located.
+ 
+* Update to use current network minfees by default (0.001 DCR/kB).
+ 
+* New account creation and account renaming are now shown immediately after
+  successful response from wallet.  Previously it would take an extra render
+  for them to be updated in the accounts list.
+ 
+### New features:
+ 
+* Transaction details page has been revamped to provide the used inputs and new
+  outputs that each transaction creates. We will be adding more to this page
+  as new information is added to be received from dcrwallet.
+ 
+* Transaction notifications have been moved to the bottom of the screen and
+  now contain a much clearer idea of each new transaction received.  We will
+  be adding the ability to click on these notifications to show the full
+  transaction details page.
+ 
+* Implement new seed entry system (react-select).  Now users can use the
+  bubble entry system to ensure they have proper spellings and length when
+  entering existing seed or confirming new ones.
+ 
+* We have started to add tooltips to various fields with the react-tooltip
+  package.  We are trying to avoid putting tooltips on everything.  We mostly
+  try to follow feedback we're getting from users as to where tooltips might
+  clear up confusion in terms of the UX.
+ 
+* Add copy-to-clipboard functionality to address generation on the Receive page.
+  We're currently auditing other places that it would make sense to add these
+  buttons (or some other trigger to copy).  Most likely, tx and block hashes,
+  scripts and other long strings that are annoying to highlight to copy.
+ 
+* Add logging with winston package.  This is the first step at revamping the
+  startup procedure for decrediton.  The more instances where users are can
+  see where something wrong, the better we can fix/diagnose further issues.
+ 
+* Introduce custrom animations for loading times.  Currently we have a simple
+  rotating DCR logo and a sprite animated Stakey.  We are planning on adding
+  a few more from various artists to showcase some of the great art being
+  created by our community.
+ 
+### Other improvements:
+ 
+* Add working wallet/account buttons to go to Accounts page for better UX.
+ 
+* Move stakeinfo to an expandable div on tickets page.
+ 
+* Overhaul of various styling according to designer input.
+ 
+* Refactor redux actions for cleaner reading.
+ 
+* Add better instructions for stakepool apikey entry.
+ 
+* Begin complete react component/container refactor.  This is the first step
+  towards fixing component structure and reuse.
+ 
+* Begin removing inline styles and Radium, replaced with Less styling.
+ 
+* Add config option to use a remote daemon set up.
+ 
+* Update README.md to include quirk about installing decrediton for the first
+  time for development.
+ 
+* Add core-decorators library and utilize @autobind annotation.
+ 
+* Update to use webpack 3.
+ 
+* Add rpm and deb linux builds.
+ 
+* Fixes to DockerFile support.
+ 
+### Commits
+ 
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/decrediton/compare/v1.0.6...v1.0.7).
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.0.5...v1.0.7).
+
+
 # [v1.0.6](https://github.com/decred/decred-binaries/releases/tag/v1.0.6)
 
 ## 2017-06-29
