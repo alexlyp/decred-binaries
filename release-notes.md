@@ -27,6 +27,119 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 * [Paymetheus](#paymetheus-v107)
 * [decrediton](#decrediton-v107)
 
+# dcrd v1.0.7
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrd/compare/v1.0.5...v1.0.7).
+
+The following is a categorized overview of all changes by commit.  
+
+### Protocol and network:
+- Allow reorg of block one (decred/dcrd#745)
+- blockchain: use the time source (decred/dcrd#747)
+- peer: Strictly enforce bloom filter service bit (decred/dcrd#768)
+- wire/peer: Implement feefilter p2p message (decred/dcrd#779)
+- chaincfg: update checkpoints for 1.0.7 release  (decred/dcrd#816)
+
+### Transaction relay (memory pool):
+- mempool: Break dependency on chain instance (decred/dcrd#754)
+- mempool: unexport the mutex (decred/dcrd#755)
+- mempool: Add basic test harness infrastructure (decred/dcrd#756)
+- mempool: Improve tx input standard checks (decred/dcrd#758)
+- mempool: Update comments for dust calcs (decred/dcrd#764)
+- mempool: Only perform standard dust checks on regular transactions  (decred/dcrd#806)
+
+### RPC:
+- Fix gettxout includemempool handling (decred/dcrd#738)
+- Improve help text for getmininginfo (decred/dcrd#748)
+- rpcserverhelp: update TicketFeeInfo help (decred/dcrd#801)
+- blockchain: Improve getstakeversions efficiency  (decred/dcrd#813)
+
+### dcrd command-line flags:
+- config: introduce new flags to accept/reject non-std transactions (decred/dcrd#757)
+- config: Add --whitelist option (decred/dcrd#352)
+- config: Improve config file handling (decred/dcrd#802)
+- config: Improve blockmaxsize check (decred/dcrd#810)
+
+### dcrctl:
+- Add --walletrpcserver option (decred/dcrd#736)
+
+### Documentation
+- docs: add commit prefix notes  (decred/dcrd#788)
+
+### Developer-related package changes:
+- blockchain: check errors and remove ineffectual assignments (decred/dcrd#689)
+- stake: less casting (decred/dcrd#705)
+- blockchain: chainstate only needs prev block hash (decred/dcrd#706)
+- remove dead code (decred/dcrd#715)
+- Use btclog for determining valid log levels (decred/dcrd#738)
+- indexers: Minimize differences with upstream code (decred/dcrd#742)
+- blockchain: Add median time to state snapshot (decred/dcrd#753)
+- blockmanager: remove unused GetBlockFromHash function (decred/dcrd#761)
+- mining: call CheckConnectBlock directly (decred/dcrd#762)
+- blockchain: add missing error code entries (decred/dcrd#763)
+- blockchain: Sync main chain flag on ProcessBlock (decred/dcrd#767)
+- blockchain: Remove exported CalcPastTimeMedian func (decred/dcrd#770)
+- blockchain: check for error (decred/dcrd#772)
+- multi: Optimize by removing defers (decred/dcrd#782)
+- blockmanager: remove unused logBlockHeight (decred/dcrd#787)
+- dcrutil: Replace DecodeNetworkAddress with DecodeAddress (decred/dcrd#746)
+- txscript: Force extracted addrs to compressed (decred/dcrd#775)
+- wire: Remove legacy transaction decoding (decred/dcrd#794)
+- wire: Remove dead legacy tx decoding code (decred/dcrd#796)
+- mempool/wire: Don't make policy decisions in wire (decred/dcrd#797)
+- dcrjson: Remove unused cmds & types (decred/dcrd#795)
+- dcrjson: move cmd types (decred/dcrd#799)
+- multi: Separate tx serialization type from version (decred/dcrd#798)
+- dcrjson: add Unconfirmed field to dcrjson.GetAccountBalanceResult (decred/dcrd#812)
+- multi: Error descriptions should be lowercase (decred/dcrd#771)
+- blockchain: cast to int64  (decred/dcrd#817)
+
+### Testing and Quality Assurance:
+- rpcserver: Upstream sync to add basic RPC tests (decred/dcrd#750)
+- rpctest: Correct several issues tests and joins (decred/dcrd#751)
+- rpctest: prevent process leak due to panics (decred/dcrd#752)
+- rpctest: Cleanup resources on failed setup (decred/dcrd#759)
+- rpctest: Use ports based on the process id (decred/dcrd#760)
+- rpctest/deps: Update dependencies and API (decred/dcrd#765)
+- rpctest: Gate rpctest-based behind a build tag (decred/dcrd#766)
+- mempool: Add test for max orphan entry eviction (decred/dcrd#769)
+- fullblocktests: Add more consensus tests (decred/dcrd#773)
+- fullblocktests: Sync upstream block validation (decred/dcrd#774)
+- rpctest: fix a harness range bug in syncMempools (decred/dcrd#778)
+- secp256k1: Add regression tests for field.go (decred/dcrd#781)
+- secp256k1: Sync upstream test consolidation (decred/dcrd#783)
+- txscript: Correct p2sh hashes in json test data  (decred/dcrd#785)
+- txscript: Replace CODESEPARATOR json test data (decred/dcrd#786)
+- txscript: Remove multisigdummy from json test data (decred/dcrd#789)
+- txscript: Remove max money from json test data (decred/dcrd#790)
+- txscript: Update signatures in json test data (decred/dcrd#791)
+- txscript: Use native encoding in json test data (decred/dcrd#792)
+- rpctest: Store logs and data in same path (decred/dcrd#780)
+- txscript: Cleanup reference test code  (decred/dcrd#793)
+
+### Misc:
+- Update deps to pull in additional logging changes (decred/dcrd#734)
+- Update markdown files for GFM changes (decred/dcrd#744)
+- blocklogger: Show votes, tickets, & revocations (decred/dcrd#784)
+- blocklogger: Remove STransactions from transactions calculation (decred/dcrd#811)
+
+### Contributors (alphabetical order):
+
+- Alex Yocomm-Piatt
+- Atri Viss
+- Chris Martin
+- Dave Collins
+- David Hill
+- Donald Adu-Poku
+- Jimmy Song
+- John C. Vernaleo
+- Jolan Luff
+- Josh Rickmar
+- Olaoluwa Osuntokun
+- Marco Peereboom
 
 ## dcrwallet v1.0.7
  
