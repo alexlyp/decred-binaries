@@ -1,3 +1,80 @@
+# [v1.0.1](https://github.com/decred/decred-binaries/releases/tag/v1.1.0)
+
+## 2017-09-18
+
+
+## Install
+
+To install Paymetheus download and run either
+[Paymetheus 64bit](https://github.com/decred/decred-binaries/releases/download/v1.0.8/decred_1.1.0-release_x64.msi) or
+[Paymetheus 32bit](https://github.com/decred/decred-binaries/releases/download/v1.0.8/decred_1.1.0-release_x86.msi)
+depending on your version of Windows.
+
+To install the command line tools, please see
+[dcrinstaller](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+
+To install decrediton download, uncompress, and run
+[decrediton Linux](https://github.com/decred/decred-binaries/releases/download/v1.1.0/decrediton-1.1.0.tar.gz) or
+[decrediton OSX](https://github.com/decred/decred-binaries/releases/download/v1.1.0/decrediton-1.1.0.dmg) or
+[decrediton Windows](https://github.com/decred/decred-binaries/releases/download/v1.1.0/decrediton-1.1.0.exe).
+
+See manifest-v1.1.0.txt, and the package specific manifest files for sha256 sums and the associated .asc files to confirm those shas.
+
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+
+
+## Contents
+
+* [dcrd](#dcrd-v110)
+* [dcrwallet](#dcrwallet-v110)
+* [Paymetheus](#paymetheus-v110)
+* [decrediton](#decrediton-v110)
+
+
+# dcrd v1.1.0
+
+## Bug fixes
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrd/compare/v1.0.8...v1.1.0)
+
+
+# dcrawllet v1.1.0
+
+## Bug fixes
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0)
+
+
+# Pametheus v1.1.0
+
+## Bug fixes
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/Paymetheus/compare/v1.0.8...v1.1.0).  Also see
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
+
+
+# decrediton v1.1.0
+
+## Bug fixes
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/decrediton/compare/v1.0.8...v1.1.0).  Also see
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
+
+
 # [v1.0.8](https://github.com/decred/decred-binaries/releases/tag/v1.0.8)
 
 ## 2017-08-25
