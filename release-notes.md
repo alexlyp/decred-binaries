@@ -43,6 +43,7 @@ All commits since the last release may be viewed on GitHub
 
 # dcrawllet v1.1.0
 
+This release was mostly bug fixes and preparation for the new voting ag
 ## Bug fixes
 
 ## Changelog
@@ -64,6 +65,12 @@ all changes to dcrwallet
 
 
 # decrediton v1.1.0
+
+This release decrediton is significant for a few newly added features and improvements.  With the help of jrick, we are now able to control child processes properly in Windows and are now able to add Windows support. 
+
+The entire startup process has been refined to help users understand what is happening behind the scenes.  Now it should be clear to users when the blockchain is downloading and what the consequences are for skipping intial sync.
+
+We have also completed work on the initial phases of the React/Redux refactor.  All inline styles have been replaced with Less styling and all components have been broken up into logic and presentation portions.  The next step will be to audit and refactor the Redux state and ensure that everything is immutable and recording proper state.
 
 ## Bug fixes
 
