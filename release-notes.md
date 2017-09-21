@@ -106,7 +106,12 @@ visualize their accumulated returns from staking.
 
 * Show rescan progress in sidebar.  This should help users avoid confusion
   after linking ApiKeys or importing scripts.
-  
+
+* Allow for basic resizing of the application window.  We are currently 
+  designing fully implemented media size break points.  But in the meantime
+  this fix should allow users with low PPI screens to see the entire
+  application view.
+
 ## Bug fixes
 
 * Clear stakepool configurations when creating a new wallet.  Otherwise, users
@@ -114,7 +119,14 @@ visualize their accumulated returns from staking.
   being attempted on another.  Other checks were still in place to avoid major
   issues, but this led to undesirable UX.
 
-* 
+* Show pending transactions of all types in the overview and the history page.
+
+* Fix erroneous reloads and form submission in get started pages.
+
+* Settings were being saved on field change instead of Save Setting submit.
+
+* When using testnet, use different background color in SideBar to accentuate 
+  that is is a different network.
 
 ## Changelog
 
