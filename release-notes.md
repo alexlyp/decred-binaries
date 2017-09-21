@@ -66,13 +66,55 @@ all changes to dcrwallet
 
 # decrediton v1.1.0
 
-This release decrediton is significant for a few newly added features and improvements.  With the help of jrick, we are now able to control child processes properly in Windows and are now able to add Windows support. 
+This release decrediton is significant for a few newly added features and 
+improvements.  With the help of jrick, we are now able to control child 
+processes properly in Windows and are now able to add Windows support.
 
-The entire startup process has been refined to help users understand what is happening behind the scenes.  Now it should be clear to users when the blockchain is downloading and what the consequences are for skipping intial sync.
+The entire startup process has been refined to help users understand what is 
+happening behind the scenes.  Now it should be clear to users when the 
+blockchain is downloading and what the consequences are for skipping intial 
+sync.
 
-We have also completed work on the initial phases of the React/Redux refactor.  All inline styles have been replaced with Less styling and all components have been broken up into logic and presentation portions.  The next step will be to audit and refactor the Redux state and ensure that everything is immutable and recording proper state.
+We have also completed work on the initial phases of the React/Redux refactor.
+All inline styles have been replaced with Less styling and all components 
+have been broken up into logic and presentation portions.  The next step will
+be to audit and refactor the Redux state and ensure that everything is 
+immutable and recording proper state.
 
+The following release will include a completely redesigned UX for staking.  We
+hope that this will make staking more approachable to new users.  We will also
+be adding complete ticket status information and basic graphs for users to 
+visualize their accumulated returns from staking.
+
+## New Features
+
+* An "About" window now shows current decrediton version, plus versions of 
+  packaged dcrd and dcrwallet binaries. This should help debug users' issues 
+  going forward.
+
+* New startup procedure.  We now wait for dcrd's rpc connection to be available
+  and subsequently check block count.  We can now show users an estimated time
+  for full blockchain download.  This done by using a best guess according to 
+  5 minutes per block and when the chain launched.  We plan on using more 
+  intelligent methods of checking current block height in the future.
+
+* Send all.  Users can now construct transactions that will completely drain an
+  account.  Simply select the account you would like to send from, click "Send
+  All" then enter you destination address.  You will then be shown the
+  amount to be sent and the estimated fee.  Click send and enter your
+  private passphrase to complete the transaction.
+
+* Show rescan progress in sidebar.  This should help users avoid confusion
+  after linking ApiKeys or importing scripts.
+  
 ## Bug fixes
+
+* Clear stakepool configurations when creating a new wallet.  Otherwise, users
+  could get into unintended situations with stakepool settings from one wallet
+  being attempted on another.  Other checks were still in place to avoid major
+  issues, but this led to undesirable UX.
+
+* 
 
 ## Changelog
 
