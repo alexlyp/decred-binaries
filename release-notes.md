@@ -1,4 +1,4 @@
-# [v1.0.1](https://github.com/decred/decred-binaries/releases/tag/v1.1.0)
+# [v1.1.0](https://github.com/decred/decred-binaries/releases/tag/v1.1.0)
 
 ## 2017-09-18
 
@@ -93,18 +93,6 @@ All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
 
-# Pametheus v1.1.0
-
-## Bug fixes
-
-## Changelog
-
-All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/Paymetheus/compare/v1.0.8...v1.1.0).  Also see
-all changes to dcrwallet
-[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
-
-
 # decrediton v1.1.0
 
 This release decrediton is significant for a few newly added features and 
@@ -173,6 +161,18 @@ visualize their accumulated returns from staking.
 
 All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/decrediton/compare/v1.0.8...v1.1.0).  Also see
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
+
+
+# Pametheus v1.1.0
+
+## Bug fixes
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/Paymetheus/compare/v1.0.8...v1.1.0).  Also see
 all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
