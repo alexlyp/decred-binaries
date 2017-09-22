@@ -164,17 +164,15 @@ All commits since the last release may be viewed on GitHub
 all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
+## Paymetheus 1.1.0
 
-# Pametheus v1.1.0
-
-## Bug fixes
-
-## Changelog
-
-All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/Paymetheus/compare/v1.0.8...v1.1.0).  Also see
-all changes to dcrwallet
-[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
+This release is likely to be the last, or one of the last, Paymetheus releases.
+Due to resource constraints, Paymetheus development has slowed down and the
+Decred team is unable to keep it in feature parity with Decrediton.  Users are
+encouraged to migrate to the Windows release of Decrediton by importing your
+Paymetheus seed.  In the meantime, this release of Paymetheus contains the
+updates for voting on DCP0002 and DCP0003 and is intended as an interim release
+to smooth the migration process.
 
 
 # [v1.0.8](https://github.com/decred/decred-binaries/releases/tag/v1.0.8)
