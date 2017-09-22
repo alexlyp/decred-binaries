@@ -114,7 +114,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - Josh Rickmar
 
 
-# dcrwallet 1.1.0
+# dcrwallet v1.1.0
 
 This release focuses on adding voting agendas for the hard forks described in
 DCP0002 and DCP0003.  It also comes with the normal set of bug fixes and
@@ -237,7 +237,7 @@ All commits since the last release may be viewed on GitHub
 all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
-# Paymetheus 1.1.0
+# Paymetheus v1.1.0
 
 This release is likely to be the last, or one of the last, Paymetheus releases.
 Due to resource constraints, Paymetheus development has slowed down and the
