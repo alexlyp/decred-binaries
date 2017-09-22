@@ -41,15 +41,56 @@ All commits since the last release may be viewed on GitHub
 [here](https://github.com/decred/dcrd/compare/v1.0.8...v1.1.0)
 
 
-# dcrawllet v1.1.0
+# dcrwallet 1.1.0
 
-This release was mostly bug fixes and preparation for the new voting ag
+This release focuses on adding voting agendas for the hard forks described in
+DCP0002 and DCP0003.  It also comes with the normal set of bug fixes and
+improvements.
+
 ## Bug fixes
+
+* Revocations can now be created which double spend an unmined vote, as long as
+  the vote is not voting on the most recent block.  This allows revocations to
+  be created for votes that were made but not included in the block by miners.
+
+* Tickets manually added through the `addticket` JSON-RPC method are now
+  included in the `gettickets` results.  This is required for correct stakepool
+  functionality.
+
+* An off-by-one was fixed when logging the number of watched addresses at wallet
+  startup.
+
+* A divide-by-zero error has been fixed when attempting to use the integrated
+  ticket buyer starting from the genesis block on simnet.
+
+## New features
+
+* A new gRPC method `WalletService.CreateSignature` has been added to create a
+  raw transaction input signature.  This is useful for clients that need to
+  include signatures in non-standard scripts without resorting to dumping a
+  private key and signing in the client.
+
+* The gRPC `WalletService.Balance` result has been updated to include the
+  unconfirmed balance.  This unconfirmed balance has the same semantics as the
+  unconfirmed field from the `getbalance` JSON-RPC result.
+
+## Other improvements
+
+* The help text for the `addticket` JSON-RPC method has been updated to reflect
+  that fact that manually added tickets are not reported in the statistics
+  returned by the `getstakeinfo` method.
+
+* Added support for Go 1.9.  Release binaries are now created using this Go
+  version.
+
+* The sample config has been updated for the current configuration defaults.
+  This sample config had not been updated in the past when default config
+  options were changed.
 
 ## Changelog
 
 All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0)
+[here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
 
 # Pametheus v1.1.0
