@@ -164,7 +164,7 @@ All commits since the last release may be viewed on GitHub
 all changes to dcrwallet
 [here](https://github.com/decred/dcrwallet/compare/v1.0.8...v1.1.0).
 
-## Paymetheus 1.1.0
+# Paymetheus 1.1.0
 
 This release is likely to be the last, or one of the last, Paymetheus releases.
 Due to resource constraints, Paymetheus development has slowed down and the
