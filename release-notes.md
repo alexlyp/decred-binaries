@@ -283,7 +283,7 @@ all changes to dcrwallet
 This release is likely to be the last, or one of the last, Paymetheus releases.
 We have decided to unifiy efforts into development of our cross-platform GUI, 
 decrediton.  We will continue to search for interested WPF/xaml developers
-that would to continue development of this native Windows GUI. Users are
+that would like to continue development of this native Windows GUI. Users are
 encouraged to migrate to the Windows release of Decrediton by importing your
 Paymetheus seed.  In the meantime, this release of Paymetheus contains the
 updates for voting on DCP0002 and DCP0003 and is intended as an interim release
