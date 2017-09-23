@@ -158,7 +158,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 # dcrwallet v1.1.0
 
 This release focuses on adding voting agendas for the hard forks described in
-DCP0002 and DCP0003.  It also comes with the normal set of bug fixes and
+[DCP0002](https://github.com/decred/dcps/blob/master/dcp-0002/dcp-0002.mediawiki) and DCP0003.  It also comes with the normal set of bug fixes and
 improvements.
 
 ## Bug fixes
