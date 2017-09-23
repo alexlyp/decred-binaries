@@ -145,7 +145,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 
 ### Code Contributors (alphabetical order):
 
-- Alex Yocomm-Piatt
+- Alex Yocom-Piatt
 - Dave Collins
 - David Hill
 - Donald Adu-Poku
