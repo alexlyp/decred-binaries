@@ -77,7 +77,7 @@ lock times for version 2 transactions via their sequence numbers and a new
 Consensus enforcement of this change relies on the result of the aforementioned
 'lnfeatures' vote.
 
-## OP_SHA256 Opcode
+### OP_SHA256 Opcode
 
 In order to better support cross-chain interoperability, a new opcode to compute
 the SHA-256 hash is being proposed.  Since this opcode is implemented as a hard
