@@ -1,6 +1,6 @@
 # [v1.1.0](https://github.com/decred/decred-binaries/releases/tag/v1.1.0)
 
-## 2017-09-18
+## 2017-09-22
 
 
 ## Install
