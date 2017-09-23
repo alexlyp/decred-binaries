@@ -158,7 +158,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 # dcrwallet v1.1.0
 
 This release focuses on adding voting agendas for the hard forks described in
-[DCP0002](https://github.com/decred/dcps/blob/master/dcp-0002/dcp-0002.mediawiki) and DCP0003.  It also comes with the normal set of bug fixes and
+[DCP0002](https://github.com/decred/dcps/blob/master/dcp-0002/dcp-0002.mediawiki) and [DCP0003]().  It also comes with the normal set of bug fixes and
 improvements.
 
 ## Bug fixes
@@ -281,8 +281,9 @@ all changes to dcrwallet
 # Paymetheus v1.1.0
 
 This release is likely to be the last, or one of the last, Paymetheus releases.
-Due to resource constraints, Paymetheus development has slowed down and the
-Decred team is unable to keep it in feature parity with Decrediton.  Users are
+We have decided to unifiy efforts into development of our cross-platform GUI, 
+decrediton.  We will continue to search for interested WPF/xaml developers
+that would to continue development of this native Windows GUI. Users are
 encouraged to migrate to the Windows release of Decrediton by importing your
 Paymetheus seed.  In the meantime, this release of Paymetheus contains the
 updates for voting on DCP0002 and DCP0003 and is intended as an interim release
