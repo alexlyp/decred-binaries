@@ -30,18 +30,59 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 * [Paymetheus](#paymetheus-v110)
 * [decrediton](#decrediton-v110)
 
+
 # dcrd v1.1.0
 
-This release of dcrd primarily introduces a new consensus vote agenda which 
-allows the stakeholders to decide whether or not to activate the features 
-needed for providing full support for Lightning Network.  For those unfamiliar
-with the voting process in Decred, this means that all code in order to 
-support these features is already included in this release, however its 
-enforcement will remain dormant until the stakeholders vote to activate it.
+This release of dcrd primarily introduces a new consensus vote agenda which
+allows the stakeholders to decide whether or not to activate the features needed
+for providing full support for Lightning Network.  For those unfamiliar with the
+voting process in Decred, this means that all code in order to support these
+features is already included in this release, however its enforcement will
+remain dormant until the stakeholders vote to activate it.
 
 The following Decred Change Proposals (DCPs) describe the proposed changes in detail:
 - [DCP0002](https://github.com/decred/dcps/blob/master/dcp-0002/dcp-0002.mediawiki)
 - DCP0003 (This documentation is not complete yet.  It will be available soon after release and before the vote begins)
+
+It is important for everyone to upgrade their software to this latest release
+even if you don't intend to vote in favor of the agenda.
+
+## Notable Changes
+
+### Lightning Network Features Vote
+
+In order to fully support many of the benefits that the Lightning Network will
+bring, there are some primitives that involve changes to the current consensus
+that need to be enabled.  A new vote with the id "lnfeatures" is now available
+as of this release.  After upgrading, stakeholders may set their preferences
+through their wallet or stake pool's website.
+
+### Transaction Finality Policy
+
+The standard policy for transaction relay has been changed to use the median
+time of the past several blocks instead of the current network adjusted time
+when examining lock times to determine if a transaction is final.  This provides
+a more deterministic check across all peers and prevents the possibility of
+miners attempting to game the timestamps in order to include more transactions.
+
+Consensus enforcement of this change relies on the result of the aforementioned
+'lnfeatures' vote.
+
+### Relative Time Locks Policy
+
+The standard policy for transaction relay has been modified to enforce relative
+lock times for version 2 transactions via their sequence numbers and a new
+`OP_CHECKSEQUENCEVERIFY` opcode.
+
+Consensus enforcement of this change relies on the result of the aforementioned
+'lnfeatures' vote.
+
+## OP_SHA256 Opcode
+
+In order to better support cross-chain interoperability, a new opcode to compute
+the SHA-256 hash is being proposed.  Since this opcode is implemented as a hard
+fork, it will not be available for use in scripts unless the aforementioned
+'lnfeatures' vote passes.
 
 ## Changelog
 
