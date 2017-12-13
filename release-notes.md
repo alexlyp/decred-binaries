@@ -1,3 +1,117 @@
+# [v1.1.2](https://github.com/decred/decred-binaries/releases/tag/v1.1.2)
+
+## 2017-12-14
+
+
+## Install
+
+To install the command line tools, please see
+[dcrinstaller](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+
+To install decrediton download, uncompress, and run
+[decrediton Linux](https://github.com/decred/decred-binaries/releases/download/v1.1.2/decrediton-v1.1.2.tar.gz) or
+[decrediton OSX](https://github.com/decred/decred-binaries/releases/download/v1.1.2/decrediton-v1.1.2.dmg) or
+[decrediton Windows](https://github.com/decred/decred-binaries/releases/download/v1.1.2/decrediton-v1.1.2.exe).
+
+See manifest-v1.1.2.txt, and the package specific manifest files for sha256 sums and the associated .asc files to confirm those shas.
+
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+
+
+## Contents
+
+* [dcrd](#dcrd-v112)
+* [dcrwallet](#dcrwallet-v112)
+* [decrediton](#decrediton-v112)
+
+
+# dcrd v1.1.2
+
+
+
+# dcrwallet v1.1.2
+
+
+## Bug fixes
+
+
+## New features
+
+
+## Other improvements
+
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrwallet/compare/v1.1.0...v1.1.2).
+
+
+# decrediton v1.1.2
+
+This release marks a major turning point in our overall look and feel of 
+Decrediton. We have introduced consistent header areas with a new subpage/tab 
+interface.  React-motion has been added to give a better feel for transitions
+from page to page and expanded area reveals.  All information modals and
+passphrase modals have been consolidated to have a consistent feel whenever they
+are used.
+
+As part of the design overhaul, the Tickets page has begun it's transformation
+to provide much better user experience.  My Tickets subpage is the first step
+into giving users a clearer picture into their current staking situation.  In
+the upcoming release, we will be adding extensive statistics and graphing to
+further help visualize a given users' balance and staking history.  Overall,
+we aim to continue to add more tools that will help users' staking experience
+much more enjoyable and carefree.
+
+We have also added advanced daemon setup abilities for users that want to use
+remote daemons or use a different location for their blockchain data.  In the 
+next release, we plan on also adding the ability to handle advanced back-end
+wallet setups: easily switch between different wallet files on the same machine,
+connecting to a remote wallet and other possible situations.  But these advanced
+options will also be completely transparent for users that choose to run with 
+the default settings.
+
+We have added a Security Center page that will be sort of a catch-all place to 
+store tools that we feel have utility, but aren't needed for everyday normal
+wallet operation.  The first 2 tools that have been added are for Signing and
+Verifying messages using addresses and private keys to prove ownership of a
+given address.  Here is a typical use case:  User A wants to prove to User B 
+that they control a given address.  With the Sign Message tool, User A enters
+the address, a message and their wallet's private passphrase.  The tool produces
+a hash that was created based on that address' private key and the given
+message.  With the Verify Message tool, User B can use the address in question,
+the hash and the message from User A to verify that it was signed using that
+address' private key.
+
+We are also happy to announce the introduction of internationalization.  
+Brazilian Portuguese has been added to start and we will be slowly adding more 
+languages on every new release.  
+
+Things to expect in the next release: 
+
+- New Overview page design
+- Rich Historical Statistics/Graphs
+- New staking account user experience
+- Advanced Wallet Settings
+- More languages translated
+
+## Bug fixes
+
+- Shorten account names in various areas to avoid obnoxious overflow.
+
+- Fix issue that was occuring when clearing out stakepool configurations.
+
+- Ensure that the space key when selecting seed words
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/decrediton/compare/v1.1.1...v1.1.2).  Also see
+all changes to dcrwallet
+[here](https://github.com/decred/dcrwallet/compare/v1.1.0...v1.1.2).
+
+
 # [v1.1.1](https://github.com/decred/decred-binaries/releases/tag/v1.1.1)
 
 ## 2017-09-29
