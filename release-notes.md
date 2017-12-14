@@ -90,19 +90,37 @@ languages on every new release.
 
 Things to expect in the next release: 
 
-- New Overview page design
-- Rich Historical Statistics/Graphs
+- New overview page design
+- Rich historical Statistics/Graphs
 - New staking account user experience
-- Advanced Wallet Settings
+- Advanced wallet settings
 - More languages translated
+
+## New Features
 
 ## Bug fixes
 
-- Shorten account names in various areas to avoid obnoxious overflow.
+* Fix issue on Windows caused by using "Aux" as a filename.  Aux is a restricted
+  filename with Windows and a simple filename change fixed it.
 
-- Fix issue that was occuring when clearing out stakepool configurations.
+* Fix shutdown issue with macOS.  When cmd-Q or quitting Decrediton from the
+  dock caused dcrd and dcrwallet to not be shutdown in the background.  By 
+  adding a final closeClis() in app.on("before-quit",...) it ensures that
+  everything is closed on any shutdown.
 
-- Ensure that the space key when selecting seed words
+* Removed Skip Sync button due to the new slip44 change in dcrwallet.  With the
+  new coin type change, dcrwallet needs to check if there has been any address
+  usage up to that point in the chain for a given wallet.
+
+* Shorten account names in various areas to avoid obnoxious overflow.
+
+* Fix issue that was occuring when clearing out stakepool configurations.  This
+  would cause users to possibly have incorrect stakepool setups.  
+
+* Change functionality of the space key during seed entry.  Previously, when the
+  user would enter the space key they would end up not "selecting" a word and
+  then just type the whole seed.  Now the space "selects" the word just as
+  pressing tab does.
 
 ## Changelog
 
