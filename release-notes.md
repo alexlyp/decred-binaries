@@ -28,18 +28,81 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 # dcrd v1.1.2
 
 
+## dcrwallet 1.1.2
 
-# dcrwallet v1.1.2
+This release focuses on internal improvements to the wallet to increase code
+quality, thereby making it easier to add optional support for SPV syncing in a
+future release.  As always, it also comes with bug fixes, new features and other
+improvements, which are detailed below.
 
+### Bug fixes
 
-## Bug fixes
+* Votes transactions that become invalid when the main chain tip block changes
+  are now removed from the wallet.  This allows the invalid vote to be double
+  spent by another vote later if the ticket is picked again on a different
+  chain.
 
+* Ticket buyer now attempts to avoid purchasing tickets for old blocks if it is
+  enabled while the wallet is catching up to the network.
+  
+* The application now exits cleanly if an interrupt signal (e.g. ^C or SIGINT)
+  is received while at a prompt (such as during wallet creation, or with
+  `--promptpass`) instead of hanging at the prompt.
 
-## New features
+* The application no longer refuses to start when duplicate RPC listener
+  addresses which bind to port 0 are specified in the config.
 
+* The `listtransactions` JSON-RPC has been fixed so that the order and amount
+  values of all results match the results returned by Bitcoin Core.
 
-## Other improvements
+* The `gettransaction` JSON-RPC has been fixed to return fees as negative
+  numbers instead of positive, which matches the behavior of Bitcoin Core.
 
+### New features
+
+* A new gRPC method `WalletService.GetTickets` has been introduced to return all
+  wallet ticket purchases between a block range.  The results are streamed to
+  the client.
+
+* A new gRPC method `WalletService.ValidateAddress` has been added with similar
+  semantics and usage to the `validateaddress` JSON-RPC method.  It can be used
+  to decode an address string, ensuring that it is a valid address, as well as
+  returning whether the address is owned by the wallet.
+
+* A new gRPC service `DecodeMessageService` has been introduced to make it
+  easier for clients not able to decode raw Decred wire messages themselves to
+  decode a message into a gRPC message.  Currently, one method exists in the
+  service, `DecodeRawTransaction`, which decodes a Decred transaction.
+
+* Pagination support has been added to the `WalletService.GetTransactions`
+  method through the introduction of a new `target_transaction_count` parameter
+  in the request.  Responses are immediately streamed to the client when the
+  target is reached.
+
+### Other improvements
+
+* Vendoring management of dependency source code has been switched from `glide`
+  to `dep`.  See the README.md for new build instructions.
+
+* The BIP0044 coin type has been seamlessly upgraded from the old Decred value
+  of 20 to 42.  The new coin type is the coin type reserved for Decred in
+  [SLIP0044](https://github.com/satoshilabs/slips/blob/master/slip-0044.md) and
+  will allow greater compatibility with third party wallets.  New wallets are
+  always created with the new coin type, but for legacy compatibility old
+  wallets and seed restores which have address usage with the old coin type will
+  not be upgraded.
+
+* The address discovery algorithm has been made more concurrent and should see
+  performance improvements, especially on CPUs with high core counts.
+
+* Performance improvements were made to the `WalletService.GetTransactions` gRPC
+  method by avoiding unnecessary JSON-RPC calls to dcrd.
+
+* The `ticketaddress` option has been deprecated and replaced by the
+  `ticketbuyer.votingaddress` option.
+
+* Publishing duplicate vote transactions in a redundant voting wallet setup no
+  longer logs an error for a rejected duplicate transaction.
 
 ## Changelog
 
