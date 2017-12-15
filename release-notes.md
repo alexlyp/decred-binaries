@@ -163,7 +163,7 @@ improvements, which are detailed below.
 
 ### Bug fixes
 
-* Votes transactions that become invalid when the main chain tip block changes
+* Vote transactions that become invalid when the main chain tip block changes
   are now removed from the wallet.  This allows the invalid vote to be double
   spent by another vote later if the ticket is picked again on a different
   chain.
@@ -204,6 +204,14 @@ improvements, which are detailed below.
   method through the introduction of a new `target_transaction_count` parameter
   in the request.  Responses are immediately streamed to the client when the
   target is reached.
+
+* The TX IPC pipe has been added (enabled with the `pipetx` option) to receive
+  messages from the application by a parent process.  When combined with the
+  `rpclistenerevents` option, this allows the application to inform the parent
+  process of the listener addresses used by the gRPC and JSON-RPC servers.  This
+  is especially useful when binding listeners to port 0 as the application is
+  able to report the actual port chosen by the operating system to the parent
+  process.
 
 ### Other improvements
 
