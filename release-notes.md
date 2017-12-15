@@ -246,12 +246,12 @@ passphrase modals have been consolidated to have a consistent feel whenever they
 are used.
 
 As part of the design overhaul, the Tickets page has begun it's transformation
-to provide much better user experience.  My Tickets subpage is the first step
+to provide a much better user experience.  My Tickets subpage is the first step
 into giving users a clearer picture into their current staking situation.  In
 the upcoming release, we will be adding extensive statistics and graphing to
 further help visualize a given users' balance and staking history.  Overall,
 we aim to continue to add more tools that will help users' staking experience
-much more enjoyable and carefree.
+be much more enjoyable and carefree.
 
 We have also added advanced daemon setup abilities for users that want to use
 remote daemons or use a different location for their blockchain data.  In the 
@@ -261,7 +261,7 @@ connecting to a remote wallet and other possible situations.  But these advanced
 options will also be completely transparent for users that choose to run with 
 the default settings.
 
-We have added a Security Center page that will be sort of a catch-all place to 
+We have added a Security Center page that will be a catch-all place to 
 store tools that we feel have utility, but aren't needed for everyday normal
 wallet operation.  The first 2 tools that have been added are for Signing and
 Verifying messages using addresses and private keys to prove ownership of a
@@ -274,8 +274,8 @@ the hash and the message from User A to verify that it was signed using that
 address' private key.
 
 We are also happy to announce the introduction of internationalization.  
-Brazilian Portuguese has been added to start and we will be slowly adding more 
-languages on every new release.  
+Brazilian Portuguese has been added for the first pass and we will be slowly 
+adding more languages on every new release.
 
 Things to expect in the next release: 
 
@@ -284,8 +284,6 @@ Things to expect in the next release:
 - New staking account user experience
 - Advanced wallet settings
 - More languages translated
-
-## New Features
 
 ## Bug fixes
 
