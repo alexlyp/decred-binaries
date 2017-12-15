@@ -154,7 +154,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - Ugwueze Onyekachi Michael
 
 
-## dcrwallet v1.1.2
+# dcrwallet v1.1.2
 
 This release focuses on internal improvements to the wallet to increase code
 quality, thereby making it easier to add optional support for SPV syncing in a
