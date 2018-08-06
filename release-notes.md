@@ -1,3 +1,86 @@
+# 2018-08-07
+
+
+## Install
+
+To install the command line tools, please see
+[dcrinstaller](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+
+To install decrediton download, uncompress, and run
+[decrediton Linux](https://github.com/decred/decred-binaries/releases/download/v1.3.0/decrediton-v1.3.0.tar.gz) or
+[decrediton OSX](https://github.com/decred/decred-binaries/releases/download/v1.3.0/decrediton-v1.3.0.dmg) or
+[decrediton Windows](https://github.com/decred/decred-binaries/releases/download/v1.3.0/decrediton-v1.3.0.exe).
+
+See manifest-v1.3.0.txt, and the package specific manifest files for sha256 sums and the associated .asc files to confirm those shas.
+
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+
+
+## Contents
+
+* [dcrd](#dcrd-v130)
+* [dcrwallet](#dcrwallet-v130)
+* [decrediton](#decrediton-v130)
+
+
+# dcrd v1.3.0
+
+# dcrwallet v1.3.0
+
+# decrediton v1.3.0
+
+This release of Decrediton marks the dawn of a large milestone in development.
+SPV (simple payment verification) has been added in dcrwallet which allows
+wallets to connect directly to peers and not required a fully synced node to be
+connected.  For now this feature will be turned OFF by default, then when we 
+have gotten thorough feedback and a confident in the usage, it will be turned
+on by default.
+
+While it's hard to give details of speed increases due to variances in systems,
+we've seen roughly a 5x increase in syncing a previously used seed to tip on 
+mainnet.  Previously syncing the chain would take roughly 1hr plus another 5-10
+mins for the wallet to become synced, now we're seeing about 20mins total time
+to being able to fully use a wallet to send or purchase tickets.
+
+In the coming releases, we are going to work on further speeding this process up,
+as well as providing more feedback from dcrwallet to Decrediton to make a more
+rich user experience.
+
+*Note: Automatic ticket purchasing has been disabled for SPV.  We will be
+implementing a way to start and stop the new v2 ticketbuyer in dcrwallet.  This
+new version is much more simple and really only has 1 option to set which would
+be an absolute balance to maintain.  This new version will also allow users to
+run multiple ticket purchases for each account.  
+
+This release also has been audited by our design team at Eeter LLC.  Most of the
+pages have received an update to the styling to add more polish and be more 
+resilient to various sizing and displays.  In the near future, we will be 
+focusing on color themes and window sizing for small, medium and large displays.  
+
+We are also proud to announce the intial release of the Politeia integration.
+While this functionality is still in beta-testing, what you see will be roughly
+the final form.  Proposals up for vote will be shown and your possible tickets
+will be compared to the proposal's allowed tickets to vote.  If there are
+tickets available to vote, you simply choose your choice, enter your passphrase
+and your tickets are used to send the Politeia server your cryptographic proof
+of ownership.
+
+## New Features
+
+* SPV integration 
+
+* Whitelisting/Proxy
+
+* Initial Politeia Integration
+
+
+## Changelog
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/decrediton/compare/v1.2.1...v1.3.0).
+
+
+
 # 2018-04-26
 
 
