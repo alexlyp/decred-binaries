@@ -110,7 +110,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 
 ### Protocol and network:
 
-- chaincfg: Add checkpoints for 1.3.0 release ([decred/dcrd#????](https://github.com/decred/dcrd/pull/????))			**TODO: PR Link**
+- chaincfg: Add checkpoints for 1.3.0 release ([decred/dcrd#????](https://github.com/decred/dcrd/pull/1385))
 - multi: Remove everything to do about bloom filters ([decred/dcrd#1162](https://github.com/decred/dcrd/pull/1162))
 - wire: Remove TxSerializeWitnessSigning ([decred/dcrd#1180](https://github.com/decred/dcrd/pull/1180))
 - addrmgr: Skip low quality addresses for getaddr ([decred/dcrd#1135](https://github.com/decred/dcrd/pull/1135))
@@ -479,16 +479,16 @@ mins for the wallet to become synced, now we're seeing about 20mins total time
 to being able to fully use a wallet to send or purchase tickets.
 
 In the coming releases, we are going to work on further speeding this process up,
-as well as providing more feedback from dcrwallet to Decrediton to make a more
-rich user experience.
+as well as providing more feedback from dcrwallet to Decrediton to make a
+richer user experience.
 
 *Note: Automatic ticket purchasing has been disabled for SPV.  We will be
 implementing a way to start and stop the new v2 ticketbuyer in dcrwallet.  This
-new version is much more simple and really only has 1 option to set which would
+new version is much simpler and really only has 1 option to set which would
 be an absolute balance to maintain.  This new version will also allow users to
-run multiple ticket purchases for each account.  
+run multiple ticket purchases for each account.
 
-This release also has been audited by our design team at Eeter LLC.  Most of the
+This release also has been audited by our design team at Eeter, LLC.  Most of the
 pages have received an update to the styling to add more polish and be more 
 resilient to various sizing and displays.  In the near future, we will be 
 focusing on color themes and window sizing for small, medium and large displays.  
@@ -497,13 +497,13 @@ We are also proud to announce the intial release of the Politeia integration.
 While this functionality is still in beta-testing, what you see will be roughly
 the final form.  Proposals up for vote will be shown and your possible tickets
 will be compared to the proposal's allowed tickets to vote.  If there are
-tickets available to vote, you simply choose your choice, enter your passphrase
+tickets available to vote, you simply make your choice, enter your passphrase
 and your tickets are used to send the Politeia server your cryptographic proof
 of ownership.
 
 ## New Features
 
-* SPV integration - *Note: This integration is currently headen from normal 
+* SPV integration - *Note: This integration is currently hidden from normal 
 usage, if you would like to test it, please set `"spv_mode": true`, in your 
 `config.json` file.  With this new integration, there has been a new way of 
 syncing that has been added.  Now instead of needing to do all of the wallet 
@@ -519,10 +519,10 @@ to domains that are used for various information.  We have also added proxy
 support for those that choose to have the extra security.  These were both
 necessary since the addition of Politeia wallet's communicating with the outside
 world.  We felt the users should have full control over where the wallet is
-communicating.  This support will be further improved upon in further releases
+communicating.  This support will be further improved upon in future releases
 and requests for things are made.
 
-* Initial Politeia Integration - *Note: This integration is currently headen
+* Initial Politeia Integration - *Note: This integration is currently hidden
 from normal usage, but can be accessed by setting `"politeia_beta": true`, in
 your `config.json` file.  When activated the user is shown a new page on the
 side bar menu, reading "Governance."  This will show them the Politeia
@@ -544,11 +544,10 @@ input error states are now being used.  We are very pleased with the look and
 feel of the input errors and believe they are not too intrusive for users while
 being very clear of what needs to be corrected.
 
-* Max Wallet Option - Users are now able to set the max number of wallets are
-shown on the launcher screen.  The default is set to 3, but users can alter that
-to whatever whole number they'd like.  But keep in mind that it was styled
-assuming only 3 would be shown, so there may be some distortions as that number
-grows.  
+* Max Wallet Option - Users are now able to set the max wallets that are
+shown on the launcher screen.  The default is currently set to 3.  But keep in
+mind that it was styled assuming only 3 would be shown, so there may be some
+distortions as the number shown grows.  
 
 * Refined About Modal - The additional window was removed in favor of a React
 modal.  This allowed us to clean up the code and remove a redundant menu bar
