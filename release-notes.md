@@ -110,7 +110,7 @@ All commits since the last release may be viewed on GitHub [here](https://github
 
 ### Protocol and network:
 
-- chaincfg: Add checkpoints for 1.3.0 release ([decred/dcrd#????](https://github.com/decred/dcrd/pull/1385))
+- chaincfg: Add checkpoints for 1.3.0 release ([decred/dcrd#1385](https://github.com/decred/dcrd/pull/1385))
 - multi: Remove everything to do about bloom filters ([decred/dcrd#1162](https://github.com/decred/dcrd/pull/1162))
 - wire: Remove TxSerializeWitnessSigning ([decred/dcrd#1180](https://github.com/decred/dcrd/pull/1180))
 - addrmgr: Skip low quality addresses for getaddr ([decred/dcrd#1135](https://github.com/decred/dcrd/pull/1135))
