@@ -474,8 +474,8 @@ on by default.
 
 While it's hard to give details of speed increases due to variances in systems,
 we've seen roughly a 5x increase in syncing a previously used seed to tip on 
-mainnet.  Previously syncing the chain would take roughly 1hr plus another 5-10
-mins for the wallet to become synced, now we're seeing about 20mins total time
+mainnet.  Previously, syncing the chain would take roughly 1hr plus another 5-10
+mins for the wallet to become synced.  Now, we're seeing about 20mins total time
 to being able to fully use a wallet to send or purchase tickets.
 
 In the coming releases, we are going to work on further speeding this process up,
