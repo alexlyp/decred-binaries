@@ -106,7 +106,7 @@ having to vote them in again.
 
 ## Changelog
 
-All commits since the last release may be viewed on GitHub [here](https://github.com/decred/dcrd/compare/release-v1.2.0...release-v1.3.0).
+All commits since the last release may be viewed on GitHub [here](https://github.com/decred/dcrd/compare/release-v1.2.0...release-v1.3.0-rc1).
 
 ### Protocol and network:
 
@@ -129,6 +129,9 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - server: Always reply to getheaders with headers ([decred/dcrd#1295](https://github.com/decred/dcrd/pull/1295))
 - addrmgr: skip never-successful addresses ([decred/dcrd#1313](https://github.com/decred/dcrd/pull/1313))
 - multi: Introduce default coin type for SLIP0044 ([decred/dcrd#1293](https://github.com/decred/dcrd/pull/1293))
+- blockchain: Modify diff redux logic for testnet ([decred/dcrd#1387](https://github.com/decred/dcrd/pull/1387))
+- multi: Reset testnet and bump to version 3 ([decred/dcrd#1387](https://github.com/decred/dcrd/pull/1387))
+- multi: Remove testnet version 2 defs and refs ([decred/dcrd#1387](https://github.com/decred/dcrd/pull/1387))
 
 ### Transaction relay (memory pool):
 
@@ -312,15 +315,17 @@ All commits since the last release may be viewed on GitHub [here](https://github
 - txscript: add/group numeric related opcode tests ([decred/dcrd#1353](https://github.com/decred/dcrd/pull/1353))
 - txscript: group reserved op code tests ([decred/dcrd#1355](https://github.com/decred/dcrd/pull/1355))
 - txscript: add/group crypto related op code tests ([decred/dcrd#1354](https://github.com/decred/dcrd/pull/1354))
+- multi: Reduce testnet2 refs in unit tests ([decred/dcrd#1387](https://github.com/decred/dcrd/pull/1387))
 
 ### Misc:
 
-- release: Bump for v1.3.0 ([decred/dcrd#????](https://github.com/decred/dcrd/pull/????)) **TODO: PR Link**
+- release: Bump for v1.3.0 ([decred/dcrd#1388](https://github.com/decred/dcrd/pull/1388))
 - multi: Correct typos found by misspell ([decred/dcrd#1197](https://github.com/decred/dcrd/pull/1197))
 - main: Correct mem profile error message ([decred/dcrd#1183](https://github.com/decred/dcrd/pull/1183))
 - multi: Use saner permissions saving certs ([decred/dcrd#1263](https://github.com/decred/dcrd/pull/1263))
 - server: only call time.Now() once ([decred/dcrd#1313](https://github.com/decred/dcrd/pull/1313))
 - multi: linter cleanup ([decred/dcrd#1305](https://github.com/decred/dcrd/pull/1305))
+- multi: Remove unnecessary network name funcs ([decred/dcrd#1387](https://github.com/decred/dcrd/pull/1387))
 
 ### Code Contributors (alphabetical order):
 
