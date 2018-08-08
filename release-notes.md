@@ -18,9 +18,9 @@ See [README.md](./README.md#verifying-binaries) for more info on verifying the f
 
 ## Contents
 
-* [dcrd](#dcrd-v130)
-* [dcrwallet](#dcrwallet-v130)
-* [decrediton](#decrediton-v130)
+* [dcrd](#dcrd-v130-rc1)
+* [dcrwallet](#dcrwallet-v130-rc1)
+* [decrediton](#decrediton-v130-rc1)
 
 
 # dcrd v1.3.0-rc1
