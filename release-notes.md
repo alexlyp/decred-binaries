@@ -465,7 +465,7 @@ old version.
 ## Changelog
 
 All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/dcrwallet/compare/v1.2.0...v1.3.0).
+[here](https://github.com/decred/dcrwallet/compare/v1.2.0...release-v1.3.0-rc1).
 
 
 # decrediton v1.3.0-rc1
@@ -566,7 +566,7 @@ onboarding slides and various informational modals.
 ## Changelog
 
 All commits since the last release may be viewed on GitHub
-[here](https://github.com/decred/decrediton/compare/v1.2.1...v1.3.0).
+[here](https://github.com/decred/decrediton/compare/v1.2.1...release-v1.3.0-rc1).
 
 
 
