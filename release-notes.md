@@ -1,3 +1,107 @@
+# 2026-04-07
+
+
+## Install
+
+To install Decrediton desktop wallet, download, uncompress, and run 
+[Decrediton Linux AppImage](https://github.com/decred/decred-binaries/releases/download/v2.1.4/decrediton-linux-amd64-v2.1.4.AppImage) 
+or 
+[Decrediton Linux tar](https://github.com/decred/decred-binaries/releases/download/v2.1.4/decrediton-linux-amd64-v2.1.4.tar.gz) 
+or 
+[Decrediton macOS arm64](https://github.com/decred/decred-binaries/releases/download/v2.1.4/decrediton-darwin-arm64-v2.1.4.dmg) 
+or 
+[Decrediton Windows](https://github.com/decred/decred-binaries/releases/download/v2.1.4/decrediton-windows-amd64-v2.1.4.exe).
+
+
+To install the command-line tools, please see [dcrinstall](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+
+See decred-v2.1.4-manifest.txt and the other manifest files for SHA-256 hashes and the associated .asc signature files to confirm those hashes.
+
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+
+## Contents
+* [dcrd](#dcrd-v214)
+* [dcrwallet](#dcrwallet-v214)
+
+# dcrd v2.1.4
+
+This is a patch release of dcrd which includes the following main changes:
+
+- Various fixes for potential denial-of-service attacks
+- RPC server now additionally rejects cross origin requests from reverse proxies
+- RPC server auth behavior for limit users with an extremely unlikely combination of config settings now behaves as intended
+- Peers will no longer consider services before handshake completion
+- Reduced memory allocations for peer-to-peer network operations
+- More efficient use of mixing message dimensions
+- Improved handling of mixing message orphans
+
+## Upgrade Highly Recommended
+
+Everyone is strongly encouraged to upgrade their software to this latest patch release.  It contains various fixes for potential denial-of-service (DoS) attacks that could possibly be used by malicious actors to disrupt service.
+
+## Changelog
+
+This patch release consists of 46 commits from 3 contributors which total to 51 files changed, 2176 additional lines of code, and 1142 deleted lines of code.
+
+All commits since the last release may be viewed on GitHub [here](https://github.com/decred/dcrd/compare/release-v2.1.3...release-v2.1.4).
+
+See  [dcrd's own release notes](https://github.com/decred/dcrd/releases/tag/release-v2.1.4) for a categorized breakdown of all commits since the last release.
+
+### Code Contributors (alphabetical order):
+
+- Dave Collins
+- Jamie Holdstock
+- Josh Rickmar
+
+# dcrwallet v2.1.4
+
+This is a bug fix release addressing mixing reliability issues.
+
+It is highly recommended that all users upgrade from prior releases.
+
+## Compatibility notice
+
+Users of the ticket autobuyer who do not mix should take care to configure the `changeaccount` config option.  This option, when set, specifies the name of an account to send change.  When unset, it will default to the same as the `purchaseaccount`.  In prior releases, all change from non-mixing ticket autobuying would be redirected to the `default` account ([`71a31658`](https://github.com/decred/dcrwallet/commit/71a31658)).
+
+## Bug fixes
+
+* An authentication bypass of the JSON-RPC websocket server was fixed ([`386d5a0e`](https://github.com/decred/dcrwallet/commit/386d5a0e)).
+
+* The mixpool now limits the number of orphan messages to avoid memory exhaustion attacks ([decred/dcrd#3606](https://github.com/decred/dcrd/pull/3606)).
+
+* The mixpool and client now impose stricter message size limits to avoid memory exhaustion attacks ([decred/dcrd#3655](https://github.com/decred/dcrd/pull/3655)).
+
+* A missing mixpool check for duplicated transaction inputs in pair request messages was corrected.  This fix prevents low cost entry to the mixpool and avoids potential memory exhaustion attacks by flooding the pool with messages ([decred/dcrd#3656](https://github.com/decred/dcrd/pull/3656)).
+
+* A variable shadowing bug which prevented unknown pair request mixing messages referenced by orphan key exchange messages from being requested by peers under SPV mode was fixed ([`acdb3694`](https://github.com/decred/dcrwallet/commit/acdb3694)).
+
+* In SPV mode, unique IDs assigned to each peer will no longer be reused by still-connected peers when the next ID (an unsigned 64-bit integer) overflows ([`e43fbf09`](https://github.com/decred/dcrwallet/commit/e43fbf09)).
+
+* Missing mutex protection of the TSpend cache, which could result in a data race, was added ([`4865ca16`](https://github.com/decred/dcrwallet/commit/4865ca16)).
+
+## Changelog
+
+The following lists all commits since dcrwallet v2.1.3:
+
+* [`5759db7d`](https://github.com/decred/dcrwallet/commit/5759db7d): [release-v2.1] Update mixing module to v0.7.2
+* [`fb7b83af`](https://github.com/decred/dcrwallet/commit/fb7b83af): [release-v2.1] Update mixing module to v0.7.1
+* [`34867813`](https://github.com/decred/dcrwallet/commit/34867813): [release-v2.1] Bump version to 2.1.4+release.local.
+* [`edbe9345`](https://github.com/decred/dcrwallet/commit/edbe9345): [release-v2.1] Update dcrd modules
+* [`4865ca16`](https://github.com/decred/dcrwallet/commit/4865ca16): [release-v2.1] wallet: Add missing mutex lock.
+* [`acdb3694`](https://github.com/decred/dcrwallet/commit/acdb3694): [release-v2.1] spv: Request unknown PRs from peers.
+* [`386d5a0e`](https://github.com/decred/dcrwallet/commit/386d5a0e): [release-v2.1] jsonrpc: Fix bugs in authenticate RPC.
+* [`1fdc4b59`](https://github.com/decred/dcrwallet/commit/1fdc4b59): [release-v2.1] Avoid NewMsgTx(); Deserialize() calls
+* [`03843fff`](https://github.com/decred/dcrwallet/commit/03843fff): [release-v2.1] types: Remove non-existent createvotingaccount
+* [`71a31658`](https://github.com/decred/dcrwallet/commit/71a31658): [release-v2.1] Respect --changeaccount with unmixed ticket autobuying
+* [`e43fbf09`](https://github.com/decred/dcrwallet/commit/e43fbf09): [release-v2.1] p2p: Handle peer ID wraparound
+
+## Code Contributors (alphabetical order):
+
+* Jamie Holdstock (@jholdstock)
+* Josh Rickmar (@jrick)
+
+
+
 # 2025-12-31
 
 
