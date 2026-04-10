@@ -1,3 +1,83 @@
+# 2026-04-10
+
+
+## Install
+
+To install Decrediton desktop wallet, download, uncompress, and run 
+[Decrediton Linux AppImage](https://github.com/decred/decred-binaries/releases/download/v2.1.5/decrediton-linux-amd64-v2.1.5.AppImage) 
+or 
+[Decrediton Linux tar](https://github.com/decred/decred-binaries/releases/download/v2.1.5/decrediton-linux-amd64-v2.1.5.tar.gz) 
+or 
+[Decrediton macOS arm64](https://github.com/decred/decred-binaries/releases/download/v2.1.5/decrediton-darwin-arm64-v2.1.5.dmg) 
+or 
+[Decrediton Windows](https://github.com/decred/decred-binaries/releases/download/v2.1.5/decrediton-windows-amd64-v2.1.5.exe).
+
+
+To install the command-line tools, please see [dcrinstall](https://github.com/decred/decred-release/tree/master/cmd/dcrinstall).
+
+See decred-v2.1.5-manifest.txt and the other manifest files for SHA-256 hashes and the associated .asc signature files to confirm those hashes.
+
+See [README.md](./README.md#verifying-binaries) for more info on verifying the files.
+
+## Contents
+* [dcrd](#dcrd-v215)
+* [dcrwallet](#dcrwallet-v215)
+
+# dcrd v2.1.5 Release Notes
+
+This is a patch release of dcrd which includes the following changes:
+
+- Correct a potential node crash that only affects the v2.1.4 release
+- Coins excluded from a mixing session that exceeds new limits are no longer greylisted
+
+## Changelog
+
+This patch release consists of 4 commits from 2 contributors which total to 5 files changed, 36 additional lines of code, and 35 deleted lines of code.
+
+All commits since the last release may be viewed on GitHub
+[here](https://github.com/decred/dcrd/compare/release-v2.1.4...release-v2.1.5).
+
+See  [dcrd's own release notes](https://github.com/decred/dcrd/releases/tag/release-v2.1.5) for a categorized breakdown of all commits since the last release.
+
+### Code Contributors (alphabetical order):
+
+- Dave Collins
+- Josh Rickmar
+
+# dcrwallet v2.1.5
+
+This is a bug fix release addressing mixing reliability issues.
+
+The pairing version to specify compatibility with other mixing peers has been increased in this release ([decred/dcrd#3674](https://github.com/decred/dcrd/pull/3674)).  Wallets running this release will not mix with older wallets, or vice versa.
+
+It is highly recommended that all users upgrade from prior releases.
+
+## Bug fixes
+
+* SPV peers are now provided as the peer source of mixing messages.  This allows mixpool orphan removal to more accurately target peers who have submitted the most orphans ([`cd2f59d`](https://github.com/decred/dcrwallet/commit/cd2f59d)).
+
+* The `accountsyncaddressindex` JSON-RPC method now correctly syncs the external account branch (instead of internal) ([`bc7039e`](https://github.com/decred/dcrwallet/commit/bc7039e)).
+
+* The mixing client now excludes peers who would exceed the new mixing limits that were introduced in the 2.1.4 release ([decred/dcrd#3672](https://github.com/decred/dcrd/pull/3672)).
+
+* The mixpool no longer penalizes for peers excluded by the 100KB standard transaction size or the new 2.1.4 mixing limits ([decred/dcrd#3673](https://github.com/decred/dcrd/pull/3673)).
+
+## Changelog
+
+The following lists all commits since dcrwallet v2.1.4:
+
+* [`78745f9`](https://github.com/decred/dcrwallet/commit/78745f9): [release-v2.1] Bump version to 2.1.5+release.local.
+* [`dbb3c3e`](https://github.com/decred/dcrwallet/commit/dbb3c3e): [release-v2.1] Update mixing module to v0.7.3
+* [`bc7039e`](https://github.com/decred/dcrwallet/commit/bc7039e): [release-v2.1] Increment correct account branch.
+* [`cd2f59d`](https://github.com/decred/dcrwallet/commit/cd2f59d): [release-v2.1] Provide SPV peers as mixing message source
+
+## Code Contributors (alphabetical order):
+
+* Jamie Holdstock (@jholdstock)
+* Josh Rickmar (@jrick)
+
+
+
 # 2026-04-07
 
 
